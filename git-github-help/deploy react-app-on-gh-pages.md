@@ -12,15 +12,18 @@
 
 4.  In package.json add "homepage" property:
 
-        "homepage": "http://github-username.github.io/reponame"    ( note no ".git" with reponame)
+        `"homepage": "http://github-username.github.io/reponame"`    ( note no ".git" with reponame)
 
     for msaudagar and "react-calculator.git" the above becomes:
-    "homepage": "http://msaudagar.github.io/react-calculator"
+
+    `"homepage": "http://msaudagar.github.io/react-calculator"`
 
 5.  In package.json's "scripts" propery add following 2 items:
 
+    ```json
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    ```
 
 6.  Note that new versions of create-react-app automatically create a git repository. If it is not created the areate a git repository in the app's folder using:
     "git init"
