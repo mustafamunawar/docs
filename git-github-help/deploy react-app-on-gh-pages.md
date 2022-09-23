@@ -32,17 +32,17 @@
     for msaudagar and "react-calculator.git" the above becomes:
     "git remote add origin https://github.com/msaudagar/react-calculator.git"
 
-7a. if a remote is already connected to some origin and you like to connect it to current local git repository then first remove existing connection by:
-"git remote rm origin"
-then use the command given above e.g.: "git remote add origin https://github.com/msaudagar/react-calculator.git"
+8.  if a remote is already connected to some origin and you like to connect it to current local git repository then first remove existing connection by:
+    "git remote rm origin"
+    then use the command given above e.g.: "git remote add origin https://github.com/msaudagar/react-calculator.git"
 
-8.  Generate a production build of your app, and deploy it to GitHub Pages by simply running following script:
+9.  Generate a production build of your app, and deploy it to GitHub Pages by simply running following script:
 
         "npm run deploy"
 
     ( it will create a "build" directory in local app with transpiled code and the same command will deploy content of "build" to github in the repository that was created in step-1)
 
-Steps 1 through 8 will will only transfer the "build" content to your github reoname. The source contents are not transferred. 9. You can "push" the source contents by following commands:
+Steps 1 through 9 will will only transfer the "build" content to your github reoname. The source contents are not transferred. 9. You can "push" the source contents by following commands:
 
 $ git add .
 $ git commit -m "Commit Message"
