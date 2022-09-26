@@ -43,6 +43,10 @@
 - If automatic merge fails the to abort merge use: `git merge --abort`
 - In case of conflict go to the file(s) and resolve the conflicts manually.
 
+### Rebase Related
+
+- The purpose of 'rebase' is similar to 'merge'
+
 ### Working with a repository on Github (or Gitlab etc.)
 
 There can be following cases:
