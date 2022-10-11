@@ -4,7 +4,7 @@ In the following type-name means "basic type like number or string" or name of a
 
 ## Installing, configuring and compiling TS
 
-TS installation: `npm install -g typscript ts-node`
+TS installation: `npm install -g typescript ts-node`
 
 After installation the `tsc` command is used to compile .ts files into .js files. Compiling app.ts: `tsc app.ts`
 
@@ -20,23 +20,23 @@ This will create 'tsconfig.json' configuration file which has a large number of 
 
 After tsconfig.json is created we can use following commands:
 
-For compiling all .ts files once: just `tsc`
+For compiling all .ts files once: just use `tsc`
 
-For auto-compiling .ts files: `tsc --watch` or `tsc -w`
+For auto-compiling .ts files use `tsc --watch` or `tsc -w`
 
 The tsconfig.json is consists of `"option name" : option value ` pairs, where value can be primitive or array. By default TS uses default values for various configuration options. We can add more settings in 'tsconfig.json'. Following are some examples:
 
 `"exclude": [files or paths]` where value of setting is an array of files or paths to be excluded (i.e. these .ts files will not be compiled).
 we don't need to use exclude but if we do we should add at least "nod_modules" in the array like. if exclude is not added then node_modules are excluded by default.
 `"exclude": ["node_modules"]`
-"include": [] is an array of files or paths to be included.
+`"include": [files or paths]` where array lists the files or paths to be included.
 
 The tsc command compiles the [includes] minus [excludes] .ts files set, note that [excludes] filters the includes files/folder
 
 In general tsc use default values for most of the settings in tsconfig.json if we do not set them ourselves
 **but if we do set a setting which has an array as value then its default is gone and we are responsible to set all needed values in the array.**
 
-Along with .js file the tsc command also generates a `.d.ts` file, it is a TypeScript Declaration file. While compiling a .ts file, the compiler strips away all the type information and store it in this declaration file. The generated .js file (JavaScript file) will not contain any TS specific information.
+Along with .js file the tsc command also generates a `.d.ts` file, it is a TypeScript Declaration file. While compiling a .ts file, the compiler strips away all the type information and stores it in this declaration file. The generated .js file (JavaScript file) will not contain any TS specific information.
 
 ## TS Concepts
 
@@ -50,7 +50,7 @@ Or the coder can explicitly assign a type to a variable via "_type annotation_" 
 Function parameters type annotation is exactly same as for any other variable.
 For function return type annotation place colon+space+type-name(CST) after closing(right) parenthesis.
 
-```typescript
+```ts
 function sumTwoNumbers(num1: number, num2: number): string {
 return `result is ${num1+num2}`;
 }
@@ -68,7 +68,7 @@ Anonymous functions are a little bit different from function declarations. When 
 
 In the following example no type annotations are given, but TypeScript can spot the bug using contextual typing for the anonymous function.
 
-```typescript
+```ts
 const names = ["Alice", "Bob", "Eve"];
 names.forEach(function (s) {
   console.log(s.toUppercase());
@@ -92,9 +92,11 @@ Non-null Assertion Operator (Postfix "!") asserts that the value is neither "nul
 
 ### Combining Types:
 
-Union Type:
+Union Type: is a type obtained by combining types with '|' .
 
-let numOrStr: number|string = 55;
+For example type1|type2 means a variable can be of type1 or type2
+
+The numOrStr variable defined by `let numOrStr: number|string = 55` can be a number or a string but none other type
 
 TS will only allow an operation if it is valid for every member of the union. For example, if you have the union string | number, you can’t use methods that are only available on string:
 
@@ -102,10 +104,10 @@ The solution is to narrow the union with code, the same as you would in JavaScri
 
 For example, TypeScript knows that only a string value will have a typeof value "string":
 
-```typescript
+```ts
 function printId(id: number | string) {
   if (typeof id === "string") {
-    // In this branch, id is of type 'string'
+    // In this branch, id is of type 'string' so using string function is ok
     console.log(id.toUpperCase());
   } else {
     // Here, id is of type 'number'
@@ -114,20 +116,22 @@ function printId(id: number | string) {
 }
 ```
 
-Sometimes you’ll have a union where all the members have something in common. For example, both arrays and strings have a slice method. If every member in a union has a property in common, you can use that property without narrowing:
+If in a union all the members have something in common. Like arrays and strings both have a slice method. If every member in a union has a property in common, we can use that property without narrowing:
 
 ### Type Aliases
 
 A "type alias" is a name for any type. The syntax for a type alias is "type typename = type definition":
-type definition can be as simple as basic type like "number" or a a "combined type" (like unions etc.)
-Below Point is defined as an object type
-type Point = {
-x: number;
-y: number;
-z?: number;
-};
+type definition can be as simple as basic type like "number" or a a "combined type" (like unions etc.). In the following Point is defined as an object type
 
-then we can use Point any place we wanted "{x: number; y: number; z: number}" .
+```ts
+type Point = {
+  x: number;
+  y: number;
+  z?: number;
+};
+```
+
+then we can use Point any place we wanted `{x: number; y: number; z: number}` .
 note that the question mark in "z?" means that z is optional. The TS will not raise error if it does not see z in Point type objects.
 
 ### Interface
@@ -135,25 +139,27 @@ note that the question mark in "z?" means that z is optional. The TS will not ra
 An "interface" in TS is an object-like set of "key:type" pairs. Conventionally interface name start with an upper case.:
 (An interface declaration is another way to name an object type like Type aliases)
 
+```ts
 interface User {
-name: string;
-id: number;
+  name: string;
+  id: number;
 }
+```
 
 Note that each key:type pair is separated by ";" while in an object "," is used to separate entries. Although you may also use "," in object type definition as separator. But it is good practice to use ";" to show that it a type not the object.
 
 Now User becomes a type (like number , string) and can be used with any object variable after a colon and space.
 
-```typescript
+```ts
 const user: User = {
   name: "Hayes",
   id: 0,
 };
 ```
 
-To add new field (ke/type) pair in an interface we use the following:
+To add new field (key/type) pair in an interface we use the following:
 
-```typescript
+```ts
 interface User {
   age: 35;
 }
@@ -165,7 +171,7 @@ You can not add new fields to a type alias once it is defined.But for interface 
 Interface is mainly for objects but type aliases are more general
 to extend interface we use "extends":
 
-```typescript
+```ts
 interface NewInterface extends OldInterface {
 newProp: type-name
 }
@@ -173,7 +179,7 @@ newProp: type-name
 
 to extend a type alias for an object we use "&" :
 
-```typescript
+```ts
 type NewType = OldType & {
 newProp: type-name
 }
@@ -232,7 +238,7 @@ TS analyzes JS constructs like "if/elseif" etc. and if these checks provide path
 
 The process of refining types to more specific types than declared via "type guards" (or conditional blocks of code) is called "narrowing". In many editors(including vscode) we can observe these types as they change,
 
-```typescript
+```ts
 function padLeft2(padding: number | string, input: string) {
   if (typeof padding === "number") {
     return " ".repeat(padding) + input;
@@ -256,7 +262,7 @@ In the above 'narrowing' is handled with existing JavaScript constructs, however
 
 To define a user-defined type guard, we simply need to define a function whose return type is a "type predicate":
 
-```typescript
+```ts
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 declare function getSmallPet(): Fish | Bird;
@@ -276,3 +282,20 @@ if (isFish(pet)) {
 
 Note that isFish() return type in the JS code should be a boolean (and it will be on code execution ) but in the TS layer it is annotated as "pet is Fish". This "pet is Fish" is a "type predicate". You may think that boolean true from isFish is equivalent of narrowing pet's type to Fish from a union of Fish|Bird/
 Also, classes can use "this is Type" to narrow their type
+
+### Some observations about Typescript
+
+- TypeScript is a "structurally typed type system". Type annotations for two variables may come from 2 different annotations (like one used type-alias while other used interface) but if their type-structure is same then TS treat them equivalently.
+
+### Object Typing
+
+Both interface and type-alias can be used for typing an object literal:
+
+type Employee = {
+name: string;
+age: number;
+};
+
+Interface Employee1 {
+
+}
