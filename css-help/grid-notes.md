@@ -3,14 +3,14 @@
 ## Terminology
 
 - Grid container: the element with `display: grid` or `display: inline-grid`
-- This creates ` grid formatting context` for chidren of container.
+- This creates ` grid formatting context` for chidren of container (called "Grid elements").
 - Grid elements: the direct descendents (children) of grid-container
 - Grid lines: The dividing lines that make up the structure of the grid. They are vertical (“column grid lines”) and horizontal (“row grid lines”)
 - Grid lines are defined implicitly when grid tracks are defined
 - A grid track is the space between two adjacent grid lines.
-- Grid tracks are defined in the explicit grid by using the `grid-template-columns` (defines column tracks) and `grid-template-rows` (defines row tracks) (you can also user the shorthand `grid` or `grid-template`).
+- Grid tracks are defined in the explicit grid by using the `grid-template-columns` (defines column tracks) and `grid-template-rows` (defines row tracks) (you can also use the shorthand `grid` or `grid-template`).
 - The value given to `grid-template-columns` or `grid-template-rows` is called `track list`, a space separated list of sizes (in px, % rem etc.)
-- If elements (block (div) or inline(span) other than a string) are directly added to container without defining tracks, they become rows.
+- If elements (block (div) or inline(span) other than a string) are directly added to Grid container without defining tracks, they become rows.
 - If a string is directly added to container, it is implicitly wrapped in an element and becomes a row-track.
 - Common `grid-template-columns` usage:
 - `grid-template-columns: 100px 300px 200px` creates 3 columns of widths 100px, 200px and 300px
