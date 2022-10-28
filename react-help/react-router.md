@@ -4,6 +4,15 @@
 - react-router-dom and react-router-native are almost identical in use.
 - The top level component in react-router is BrowserRouter (or NativeRouter in React Native)
 - BrowserRouter is usually imported in index.js and the App.js is wrapped in this router as following:
+- `import { BrowserRouter } from "react-router-dom"`
+
+- A simple way to use routing is consists of following 3 steps:
+
+1. router-setup by wrapping top-level component (App.js) by <BrowserRouter> </BrowserRouter>
+2. routes-definition: <Route> components are placed between <Routes> and </Routes> (usually in App.js)
+3. Define links using <Link> components (typically in a navbar)
+
+- simple example
 
 ```jsx
 import React from "react";
