@@ -187,7 +187,7 @@ Type aliases and interface are very similar. Note the following though:
 You can not add new fields to a type alias once it is defined. But for interface you can as in User above.
 Interface is mainly for objects but type aliases are more general.
 
-To extend interface we use "extends":
+To extend interface we use "extends" just like JS class "extends" :
 
 ```ts
 interface NewInterface extends OldInterface {
@@ -207,8 +207,8 @@ For objects typing, it is highly recommended to use 'interface' not 'type alias'
 
 ### Array Type
 
-To declare an array type simply add "[]" to type-name like const arr1: number[]; declares that arr1 is an array of numbers.
-Another way for array type is to use Array before type-name in angle brackets. like Array<string> .
+To declare an array type simply add "[]" to type-name like const `arr1: number[];` declares that arr1 is an array of numbers.
+Another way for array type is to use Array before type-name in angle brackets. like `Array<string>`, or `Array<number>` .
 
 ### Type Assertion
 
@@ -233,11 +233,11 @@ let color: "red"|"blue"|"green"; (will only allow these colors)
 
 To declare an object's property as literal (not changeable) you use "as value" assertion.
 
-const employee = {name: "john", company: "Microsoft" as "Microsoft"}
+`const employee = {name: "john", company: "Microsoft" as "Microsoft"}`
 
-this is a tedious way, you basically repeat the property value.Soto declare an object's all properties as literal you can use the assertion suffix "as const"
+this is a tedious way, you basically repeat the property value. So to declare an object's all properties as literal you can use the assertion suffix "as const"
 
-const john = {name: "john", company:"Microsoft"} as const;
+`const john = {name: "john", company:"Microsoft"} as const;`
 
 In JS null means variable is "absent" while undefined means variable is there but is "un-initialized"
 
