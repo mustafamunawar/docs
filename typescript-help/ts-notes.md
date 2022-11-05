@@ -27,9 +27,8 @@ For auto-compiling .ts files use `tsc --watch` or `tsc -w`
 The tsconfig.json is consists of `"option name" : option value ` pairs, where value can be primitive or array. By default TS uses default values for various configuration options. We can add more settings in 'tsconfig.json'. Following are some examples:
 
 `"exclude": [files or paths]` where value of setting is an array of files or paths to be excluded (i.e. these .ts files will not be compiled).
-we don't need to use exclude but if we do we should add at least "nod_modules" in the array like. if exclude is not added then node_modules are excluded by default.
-`"exclude": ["node_modules"]`
-`"include": [files or paths]` where array lists the files or paths to be included.
+we don't need to use exclude but if we do, then we should add at least "node_modules" in the array like `"exclude": ["node_modules"]`. if exclude is not added then node_modules are excluded by default.
+`"include": [files or paths]` where array lists the files or paths to be included. If 'include' property is not specified the TS will compile all the .ts files in a project.
 
 The tsc command compiles the [includes] minus [excludes] .ts files set, note that [excludes] filters the includes files/folder
 
@@ -40,7 +39,7 @@ Along with .js file the tsc command also generates a `.d.ts` file, it is a TypeS
 
 ## TS Concepts
 
-In general TS implicitly infer a variable type based on initial assigned value e.g. for "let x = 5" TS assumes type is "number".
+In general TS implicitly infers a variable type based on initial assigned value e.g. for "let x = 5" TS assumes type is "number".
 
 Or the coder can explicitly assign a type to a variable via "_type annotation_" which is like `variable: type-name` e.g.:
 `let name: string`; or `let age: number`; etc. Note it is variable name followed by a colon followed by a space followed by type-name (VCST).
@@ -86,9 +85,27 @@ TS raises an error if a variable type is established (via inference or explicit 
 
 an "assertion" about a value is an explicit casting of type using "as + space + type-name";
 
+A trivial assertion example: `const x = "hello" as string;` which is equivalent of `const x: number = "hello";`
+
+A more useful assertion example: `const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;`
+
+TS by itself can only infers that document.getElementById() will give some kind of HTMLElement but the coder based on his/her knowledge tells TS, by using above assertion, that the returned object will be HTMLCanvasElement.
+
+Another syntax for making assertion is to use angular brackets (of course not in .tsx files where < and > are used for jsx syntex):
+
+The above example using < >: `const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");`
+
+Note that TS does infer DOM object types to a certain extent.
+
 Non-null Assertion Operator (Postfix "!") asserts that the value is neither "null" nor "undefined"
 
-"narrowing" means using "if", "else if" or "else" block. It helps ts in reconciling types with corresponding methods or operations.
+example: `const prop1 = obj1.prop1!` assures TS that obj1.prop1 is neither null nor 'undefined'
+
+"narrowing" means using "if", "else if" or "else" block. It helps TS in reconciling types with corresponding methods or operations.
+
+### TS Benefits
+
+1.  TS strictly defines what a given variable can contain. A variable have to be of same.
 
 ### Combining Types:
 
@@ -167,9 +184,10 @@ interface User {
 
 Type aliases and interface are very similar. Note the following though:
 
-You can not add new fields to a type alias once it is defined.But for interface you can as in User above.
-Interface is mainly for objects but type aliases are more general
-to extend interface we use "extends":
+You can not add new fields to a type alias once it is defined. But for interface you can as in User above.
+Interface is mainly for objects but type aliases are more general.
+
+To extend interface we use "extends":
 
 ```ts
 interface NewInterface extends OldInterface {
