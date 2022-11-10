@@ -1,14 +1,22 @@
 # Node and Expree Notes
 
 - To install any package via npm globally:
-  `npm install -g packageName`
-- To install any package via npm locally in a project:
-  `npm install packageName`
-  `npx packageName [arguments]` does following:
 
-1. Downloads packageName
-2. Excecute it
-3. Delete it
+  `npm install -g packageName`
+
+- To install any package via npm locally in a project:
+
+- via npm:
+
+  `npm install packageName`
+
+- via npx:
+
+  `npx packageName [arguments]` (does following:)
+
+  1. Downloads packageName
+  2. Excecute it
+  3. Delete it
 
 - Benefit over `npm install packageName` is that some packages like `create-react-app` are used only once per app so nno need for storing them.
 
