@@ -45,9 +45,33 @@
 
 - The attribute `action` of HTML ``form element``` allows to send the url(path, route) upon form submission. Used as:
 
-`<form action='url' method='OST'>`
+`<form action='url' method='POST'>`
 
 - The data via http is always in `chunks` of text. Everything needs to be stringify. If it is json then it needs to be stringify from sending side to receiving side. The receiving side then can ‘parse’ the string and get json.
+
+- A basic example of a pure Node server (from MDN) is:
+
+```js
+// Load HTTP module
+const http = require("http");
+
+const hostname = "127.0.0.1";
+const port = 8000;
+
+// Create HTTP server
+const server = http.createServer(function (req, res) {
+  // Set the response HTTP header with HTTP status and Content type
+  res.writeHead(200, { "Content-Type": "text/plain" });
+
+  // Send the response body "Hello World"
+  res.end("Hello World\n");
+});
+
+// Prints a log once the server starts listening
+server.listen(port, hostname, function () {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+```
 
 - Scripts in npm are run by `npm run script-name` but the start script is run by just `npm start`
 
