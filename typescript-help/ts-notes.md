@@ -207,8 +207,8 @@ For objects typing, it is highly recommended to use 'interface' not 'type alias'
 
 ### Array Type
 
-To declare an array type simply add "[]" to type-name like const `arr1: number[];` declares that arr1 is an array of numbers.
-Another way for array type is to use Array before type-name in angle brackets. like `Array<string>`, or `Array<number>` .
+To declare an array type simply add "[]" to type-name like const `const arr1: number[];` declares that arr1 is an array of numbers.
+Another way for array type is to use Array before type-name in angle brackets. like `const arr2: Array<string>`, or `Array<number>` .
 
 ### Type Assertion
 
@@ -254,7 +254,7 @@ Enums are a feature added to JavaScript by TypeScript which allows for describin
 
 TS analyzes JS constructs like "if/elseif" etc. and if these checks provide paths for allowable types then TS regards these checks paths as "type guard" and does not raise warnings.
 
-The process of refining types to more specific types than declared via "type guards" (or conditional blocks of code) is called "narrowing". In many editors(including vscode) we can observe these types as they change,
+The process of refining types to more specific types than the declared ones via "type guards" (or conditional blocks of code) is called "narrowing". In many editors(including vscode) we can observe these types as they change,
 
 ```ts
 function padLeft2(padding: number | string, input: string) {
@@ -298,6 +298,7 @@ if (isFish(pet)) {
 }
 ```
 
+The `void` in swim() and fly() means that these methods return nothing.
 Note that isFish() return type in the JS code should be a boolean (and it will be on code execution ) but in the TS layer it is annotated as "pet is Fish". This "pet is Fish" is a "type predicate". You may think that boolean true from isFish is equivalent of narrowing pet's type to Fish from a union of Fish|Bird/
 Also, classes can use "this is Type" to narrow their type
 
