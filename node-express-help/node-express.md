@@ -51,12 +51,17 @@
 
 - Scripts in npm are run by `npm run script-name` but the start script is run by just `npm start`
 
-- Express (the module) exports a function (internally called CreateApplication)which is imported by require(‘express’). Almost always it is named ‘express’ but remember it is actually the `createApplication` funtion in express module. When express function (not the module express) is invoked it gives an express application object which is rightly named as `app` in express programs. (i.e. const app = express())
-  app.use() is used for executing middleware. app.use() execute all requests with any of HTTP methods, but app.get() and app.post() execute GET and POST requests respectively.
+- Express (the module) exports a function (internally called CreateApplication)which is imported by require(‘express’). Almost always it is named ‘express’ but remember it is actually the `createApplication` funtion in express module. When express function (not the module express) is invoked (without any arguments) it gives an express application object which is rightly named as `app` in express programs. (i.e. const app = express())
+
+- app.use() is used for executing middleware. app.use() execute all requests with any of HTTP methods, but app.get() and app.post() execute GET and POST requests respectively.
 
 - In Node all `headers` are represented in lower-case only, regardless of how the client actually sent them.
 
-- Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on). Endpoint = `path` + `http method`. Note that query strings are not part of the route path.
+- Routing refers to determining how an application responds to a client request to a particular endpoint
+
+- An `end point` is a URI (or path) and a specific HTTP request method (GET, POST, and so on).
+
+- So an end point is a `combination of a 'path' and a 'http method' `. Note that query strings are not part of the route path.
 
 - A `route` is a combination of a HTTP method, a path and a handler (route handler) function with req and res as parameters. Often a route is called route-handler .
 
