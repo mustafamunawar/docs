@@ -18,12 +18,12 @@
   2. Excecute it
   3. Delete it
 
-- Benefit over `npm install packageName` is that some packages like `create-react-app` are used only once per app so nno need for storing them.
+- Benefit of `npx packageName [arguments]` over `npm install packageName` is that some packages like `create-react-app` are used only once per app so nno need for storing them.
 
 - As an example: To create a new React application type on command line:
   `npx create-react-app appName`
 
-- Some core Node modules: fs, path, http, https, os
+- Some `core Node modules` : `fs`, `path`, `http`, `https`, `os`
 
 - Core and installed modules are imported by require(‘module name’)
 
@@ -31,7 +31,7 @@
 
 - Vscode intellisense for method parameters. Cursor beteween method’s parathenses (method(cursor))and press ctrl+shift+space.
 
-- http.createServer takes a callback with request(req) and response (res) objects. The req object encapsulates incoming request’s details and it is res object in which the callback writes apprpriate response that is then sent to the requesting site (e.g. browser).
+- `http.createServer` takes a callback with request(req) and response (res) objects. The req object encapsulates incoming request’s details and it is res object in which the callback writes apprpriate response that is then sent to the requesting site (e.g. browser).
 
 - The req object includes `method`, `url` and `headers` sub-objects along with other objects.
 
