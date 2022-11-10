@@ -43,10 +43,11 @@
 
 - All http method names are case-sensitive, and all registered methods are all upper-case. So they are GET, POST PUT etc. not Get or get etc.
 
-- Attribute action of form allows to send the url(path, route) upon form submission. Used as
-<form action=```url``` method=```POST```>
+- The attribute `action` of HTML ``form element``` allows to send the url(path, route) upon form submission. Used as:
 
-- The data via http always in `chunks` of text. Everything needs to be stringify. If it is json then it needs to be stringify from sending side to receiving side. The receiving side then can ‘parse’ the string and get json.
+`<form action='url' method='OST'>`
+
+- The data via http is always in `chunks` of text. Everything needs to be stringify. If it is json then it needs to be stringify from sending side to receiving side. The receiving side then can ‘parse’ the string and get json.
 
 - Scripts in npm are run by `npm run script-name` but the start script is run by just `npm start`
 
