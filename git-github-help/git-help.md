@@ -5,10 +5,18 @@
 ### Initialization Realted
 
 - configure email: `git config --global user.email useremail`
+
 - configure name: `git config --global user.name username`
 
 - `git init path` creates .git in path directory. `git init` creates .git in current directory.
+
 - To clone a repository from github: `git clone https://www.github.com/username/repo-name`
+
+- To clone a project which is on local machine to another on local machine as well
+
+- `git clone source-project-path destination-project-path`
+
+- Run `npm install` after cloning any Nodejs project (from local machine or from a remote url) to install dependencies given in package.json and package-lock.json.
 
 ### Staging Related
 
