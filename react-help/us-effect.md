@@ -1,5 +1,7 @@
 # React Hooks
 
+- Checkout: https://beta.reactjs.org/learn/synchronizing-with-effects for details from React Docs
+
 - `Effects` let you specify 'side effects' that are caused by `rendering` itself, rather than by a particular event. This capitalized “Effect” refers to the React-specific definition above, i.e. `a side effect caused by rendering`.
 
 - `Effects` let you `run some code after rendering` so that you can synchronize your component with some system outside of React.
