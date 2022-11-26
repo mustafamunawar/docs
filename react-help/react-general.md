@@ -31,13 +31,15 @@ The `rendering` process is recursive: if the updated component returns some othe
    Browser re-paints screen to reflect modified DOM (it is called 'browser-rendering' but to avoid confusion 'painting' is used in React docs)
 
 - Remember: a React component “mounts” means it `appears on the screen for the first time`.
-- In 'development mode' React immediately re-mount components after the first mount. The purpose is to spot any bugs (e.g. unclosed connections etc.). This is not obviously done in 'production mode'
+- In React StrictMode and 'development mode' React immediately re-mount components after the first mount. The purpose is to spot any bugs (e.g. unclosed connections etc.). This is obviously not done in 'production mode'
 
 - To stop React re-mounting components in 'development mode' you can turn off Strict Mode to opt out of the development behavior, but React team recommends keeping it on. This lets you find many bugs like the one above.
 
 - In general, you should not expect your components to be rendered in any particular order. It doesn’t matter if you call y = 2x before or after y = 5x: both formulas will resolve independently of each other. In the same way, each component should only “think for itself”, and not attempt to coordinate with or depend upon others during rendering. Rendering is like a school exam: each component should calculate JSX on their own!
 
 - React offers a “Strict Mode” in which it calls each component’s function twice during development. By calling the component functions twice, Strict Mode helps find components that break these rules.
+
+- check out React Docs https://beta.reactjs.org/learn/synchronizing-with-effects for more details
 
 - React does not guarantee that component functions will execute in any particular order, so you can’t communicate between them by setting variables. All communication must happen through props.
 
