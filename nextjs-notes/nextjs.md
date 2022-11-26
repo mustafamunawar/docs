@@ -15,6 +15,11 @@
 - In Next.js, a `page` is a React Component exported from a .js, .jsx, .ts, or .tsx file in the `pages` directory.
 - Each page is associated with a `route` based on its `file name`.
 
+- The directory/file structure/tree under pages directory sets various routes paths. A route ia defined by domain name followed by path (without 'pages' itsef) of the intended .js/.jsx file. Or an intended directory containing an index.js / index.jsx file. Havin a folder with an index.js(x) is beneficial because you can use a nested routes structure and also you may want to keep related .css files and other assets in the same directory for better organization.
+
+- A page's filename should be enclosed in sqaure brackets like [projectid].js(x) for it to be a dynamic route.
+- Nextjs provides useRouter() hook which can be imported as `import {useRouter} from 'next/router'`
+
 - By default, Next.js pre-renders every page.
 - This means that Next.js generates HTML for each page in advance, instead of having it all done by client-side JavaScript.
 - `Pre-rendering` can result in better performance and SEO.
