@@ -1,4 +1,4 @@
-# React Hooks
+# Effects and useEffect()
 
 - Checkout: https://beta.reactjs.org/learn/synchronizing-with-effects for details from React Docs
 
