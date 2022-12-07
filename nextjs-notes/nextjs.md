@@ -69,3 +69,25 @@ export default function Home() {
   return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
 }
 ```
+
+### The \_app.js file
+
+- The \_app.js is a special component that is used to initialize every page. This is a place where you would do anything that needs to affect all pages, eg. load a global stylesheet.
+
+```js
+import "../styles/globals.css";
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+
+export default MyApp;
+```
+
+- The \_app file is called during each page initialization. Within the \_app file you can fully control the page initialization process by implementing custom logic to make your pages consistent across your web property.
+
+- use cases for \_app.js :
+
+1. Common header/Navbar and footer accross all pages.
+2. Global CSS file
+3. You Can Also add Your Basic Meta Tags to All Pages using Nextjs Head Component.
