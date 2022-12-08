@@ -39,6 +39,10 @@
 - To switch to an existing branch: `git checkout existing-branch`
 - To create a branch and switch to it: `git checkout -b new-branch`
 
+- copy a file/folder from another branch
+
+- `git checkout branch_A -- Folder\Folder1\file.txt`
+
 ### Merge Related
 
 - To merge branch-2 in branch-1 first we need to switch to branch-1. Then use: `git merge branch-2`
