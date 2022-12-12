@@ -12,7 +12,7 @@
 
 - To clone a repository from github: `git clone https://www.github.com/username/repo-name`
 
-- To clone a project which is on local machine to another on local machine as well
+### To clone a project which is on local machine to another on local machine as well
 
 - `git clone source-project-path destination-project-path`
 
