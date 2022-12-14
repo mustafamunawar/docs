@@ -78,8 +78,8 @@ names.forEach(function (s) {
 
 the above is called "contextual typing" as TS infers types from context.
 
-In general Typscript tries to infer types in most cases. If inference is not possible it assign "any" type.
-But if `noImplicitAny = true` flag is set then it generate an error.
+In general Typscript tries to infer types in most cases. If inference is not possible it assigns the type "any".
+But if `noImplicitAny = true` flag is set then it generates an error.
 
 TS raises an error if a variable type is established (via inference or explicit annotation ) and later in the code the type of variable is apparently changes somehow.
 
@@ -150,6 +150,7 @@ type Point = {
 
 then we can use Point any place we wanted `{x: number; y: number; z: number}` .
 note that the question mark in "z?" means that z is optional. The TS will not raise error if it does not see z in Point type objects.
+Note by convention type aliases are capitalized (e.g. Point not point).
 
 ### Interface
 
