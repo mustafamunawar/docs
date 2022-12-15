@@ -43,16 +43,6 @@ The `rendering` process is recursive: if the updated component returns some othe
 
 - React does not guarantee that component functions will execute in any particular order, so you can’t communicate between them by setting variables. All communication must happen through props.
 
-- To “remember” things, React components use `state`.
-
-- `state` should never be directly mutated (i.e. changed). Always us setState() to change it.
-
-- When you call setState in a component, React automatically updates the child components inside of it too.
-
-- `state` is not like a regular variable that disappears after your function returns. State actually “lives” in React itself—as if on a shelf!—outside of your function. When React calls your component, it gives you a snapshot of the state for that particular render.
-
-- A state variable’s value never changes within a render, even if its event handler’s code is asynchronous (e.g. contains functions like setTimeout() etc.).
-
 - In React, there are two rendering mechanisms, shallow and deep rendering. Shallow rendering affects just the component and not the children, while deep rendering affects the component itself and all of its children.
 - When an update is made to a `ref` (i.e. variable created by useRef() or React.createRef()), the shallow rendering mechanism is used to re-render the component.
 

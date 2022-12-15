@@ -1,5 +1,11 @@
 # Tailwind CSS Notes
 
+### What is Tailwind CSS
+
+- TW is a utility classes based system
+- each utility class corresponds to one CSS aspect often one CSS rule
+- it is a shorthand notation for writing CSS
+
 ### Simple html/css/js Projects
 
 - First install tailwind: `npm install -D tailwindcss`
