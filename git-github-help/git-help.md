@@ -16,6 +16,12 @@
 
 - `git clone source-project-path destination-project-path`
 
+- a better way to go in destination folder and:
+
+- `git clone source-project-path new-name-for-cloned-project` note only new name not the path because you are already in destination folde.
+
+-
+
 - Run `npm install` after cloning any Nodejs project (from local machine or from a remote url) to install dependencies given in package.json and package-lock.json.
 
 ### Staging Related
