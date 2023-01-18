@@ -94,3 +94,15 @@ In the 'src' folder create input.css with following tailwind directives:
 
 - css `width: minmax(min,max)` is basically `min <= width <=max`
 - use grid-cols-n to create grids with n equally sized columns
+
+### Using template string for concatenating classes
+
+- As long as a class name appears in your template in its entirety, Tailwind will not remove it from production build.
+- Otherwise it will remove some classes for optimization sake.
+- So do not use string concatenation to create class names, like this:
+
+`` <div className={`text-${error ? 'red' : 'green'}-600`}></div> ``
+
+- instead use like:
+
+`<div className={`${error ? 'text-red-600' : 'text-green-600'}`}></div>`
