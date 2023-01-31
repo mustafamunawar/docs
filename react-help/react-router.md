@@ -91,7 +91,7 @@ export function App() {
 ```
 
 - Note in `<Link>` we use 'to' instead of 'href' in `<a>`
-- In the example `<Routes>...</Routes>` acts like `<Switch>...</Switch>` (e.g. exclusive routing i.e. only one route is redered)
+- In the example `<Routes>...</Routes>` acts like `<Switch>...</Switch>` (e.g. exclusive routing i.e. only one route is rendered)
 - In the example above if path is changed only the content wrapped in <Routes> will change all other content will remain unchanged.
 
 - Using `<NavLink>` instead of `<Link>` is better as it allows to add active pseudo class css.
