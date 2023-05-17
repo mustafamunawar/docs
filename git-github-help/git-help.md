@@ -2,6 +2,41 @@
 
 ## GIT Basics
 
+### Understand refs, heads and HEAD
+
+- In Git you have many brances. Each branch has many commits. The "tip" or the most recent commit of a branch is its "head".
+
+- In Git, a "ref" is a human readable name that references a Git commit ID. A ref is essentially a pointer to a commit. Examples of refs are Git branch names such as "main" and "dev". Another example of refs are Git tags such as v0.1 or v0.2. You can think of each of these as a variable name that points to a commit ID. The commit ID that a ref points to is dynamic so it can change over time.
+
+- When representing a branch name, a "ref" such as "main" (previously called "master") represents the tip (most recent commit ID) on that branch. Refs are stored in a special hidden location in your Git repository at the path .git/refs/.
+
+- In Git, a "head" (not HEAD) is a ref that points to the tip (latest commit) of a branch. You can view your repository’s heads in the path .git/refs/heads/. In this path you will find one file for each branch, and the content in each file will be the commit ID of the tip (most recent commit) of that branch.
+
+- For example, there is literally a file called "main" in that path that contains the commit ID of the tip of the "main" branch. When you make a new commit on a branch or pull commits from a remote, the head file for that branch is always updated to reflect the commit ID of the tip of the branch. In this way, your branch name ref always stays in sync with the most recent commit at the tip of the branch.
+
+- HEAD is a special ref that points to the commit you are currently working on - the currently checked out commit in your Git working directory. You can think of it as a global variable or environment variable within your Git repo that can change depending on which commit you've checked out in your working directory. It is stored in a file called .git/HEAD. Check its content by:
+
+```shell
+$ cat .git/HEAD
+ref: refs/heads/master
+```
+
+- In lowercase, "head" is a general term that means any commit that represents a branch tip. In uppercase, "HEAD" is a specific Git ref that always points to the commit currently checked out in the working directory.
+
+- `git checkout <commit ID>` take you to any previous commit but then you are in a detached HEAD situation. Why? because HEAD is supposed to be a pointer to tip/head commit of a branch not to any earlier commit(s).
+
+- When working with Git, only one branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.
+
+- Git makes note of this current branch in a file located inside the Git repository, in .git/HEAD. (This is an internal file, so it should not be manually manipulated!)
+  If you wonder what exactly this file contains, you can simply have its contents printed on the command line:
+
+```shell
+$ cat .git/HEAD
+ref: refs/heads/master
+```
+
+- In rare cases, the HEAD file does NOT contain a branch reference, but a SHA-1 value of a specific revision. This happens when you checkout a specific commit, tag, or remote branch. Your repository is then in a state called "Detached HEAD".
+
 ### Initialization Realted
 
 - configure email: `git config --global user.email useremail`
