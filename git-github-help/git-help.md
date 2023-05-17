@@ -145,3 +145,5 @@ There can be following cases:
 - You can have multiple remotes. Usually for a primary 'remote repository' the alias 'origin' is used. Of course multiple remotes we have to use multiple aliases. In commands that require remote argument, 'origin' (or the first defined remote) will be used as the default remote.
 
 - If we do not define aliases for 'remotes' then we will need to write full url of remotes in Git commands that interact with remote repositories.
+
+# Rough Stuff
