@@ -42,7 +42,7 @@ Along with .js file the tsc command also generates a `.d.ts` file, it is a TypeS
 In general TS implicitly infers a variable type based on initial assigned value e.g. for "let x = 5" TS assumes type is "number".
 
 Or the coder can explicitly assign a type to a variable via "_type annotation_" which is like `variable: type-name` e.g.:
-`let name: string`; or `let age: number`; etc. Note it is variable name followed by a colon followed by a space followed by type-name (VCST).
+`let name: string`; or `let age: number`; etc. Note it is variable name followed by a colon followed by type-name (VCT). There may be optional spaces which an ide/editor will adjust for pretty-formatting.
 
 ### Functions Typing
 
@@ -87,7 +87,7 @@ an "assertion" about a value is an explicit casting of type using "as + space + 
 
 A trivial assertion example: `const x = "hello" as string;` which is equivalent of `const x: number = "hello";`
 
-A more useful assertion example: `const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;`
+A more useful assertion example: `const myCanvas = document.getElementById("xyz") as HTMLCanvasElement;`
 
 TS by itself can only infers that document.getElementById() will give some kind of HTMLElement but the coder based on his/her knowledge tells TS, by using above assertion, that the returned object will be HTMLCanvasElement.
 

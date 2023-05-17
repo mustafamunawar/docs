@@ -141,4 +141,5 @@ print("Hi there")
 
             - item 1
             - item 2
-        </details>
+
+   </details>
