@@ -66,6 +66,7 @@ ref: refs/heads/master
 - To stage all modified files: `git add .`
 - To un-stage a file: `git reset filename`
 - To unstage all files: `git reset`
+- To unmodify all changes: `git reset --hard`
 
 ### Commit Related
 
@@ -106,8 +107,19 @@ There can be following cases:
 
 - If user is owner of the repository or has write access to it then just 'clone' it directly to his local machine and push to it. This is not recommended workflow.
 
-- If the repository doesn't belong to user and he has no write-access then he has to copy the repository in his account on Github by 'forking' it. Once forked the original is referred to as 'upstream'. The user now clone his copy of upstream to his local machine and works as usual.
+- If the repository doesn't belong to user and he has no write-access then he has to copy the repository in his account on Github by 'forking' it. Once
+  forked the original is referred to as 'upstream'. The user now clone his copy of upstream to his local machine and works as usual.
+
 - forking is available on Github but it is not available on BitBucket. Only direct collaborators allowed.
+
+### Git Clone details
+
+- When you clone a repository through Git it clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository (can be listed using git branch -r), `and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch`. It looks like we only have access to the main branch locally and that we have to remotely checkout the other branches. The Git already has tracking information for all the remote branches following the clone. We can access any of the branches with a simple checkout `git checkout branchname`.
+
+- if you want other than remote's currently active branch then use `git clone --branch <branchname> <remote-repo-url>`. It will create RTB for all branches of remote but checks out the specified branch in local workspace.
+
+- if you reall like to clone only one branch (ond RTB for only that branch) then use:
+  `git clone --branch <branchname> --single-branch <remote-repo-url>` . Note `--branch` can be replaced by the short `-b`
 
 ### Push related
 
@@ -120,7 +132,38 @@ There can be following cases:
 
 ### Fetch and Remote Tracking Branches
 
+- The git fetch command downloads objects to the local machine without overwriting existing local code in the current branch. The command pulls a record of remote repository changes, allowing insight into progress history before adjustments. Git isolates the fetched content from the local code. Therefore, the fetch provides a safe way to review the information before committing to your local branch.
+
+- `git fetch <options> <remote name> <branch name>` By default all branches of a remote are fetched. If remote is not given "origin" is used.
+
+- to fetch from all remotes use --all option.
+
+- use `git fetch --help` to get details of fetch command
+
 - Beside local branches, there is a set of copies of remote branches ('remote tracking branches (RTB)') in user's local git repository
+
+- local branches references are stored in `.git/refs/heads` and RTB references are stored in `.git/refs/remotes`
+
+- You can list RTB by `git branch -r`
+
+- when you clone from a repo from Github, Git’s clone command automatically names it (i.e. the repo) "origin" for you, pulls down all its data, creates a pointer to where its "main" branch is, and names it origin/main locally. Git also gives you your own local master branch starting at the same place as origin’s main branch. From here the "origin/main" and local "main" can be modified differently.
+
+- as long as you stay out of contact with your origin server, your origin/master pointer doesn’t move.
+
+- RTB are updated with the `git fetch` command.
+
+- When you `git fetch origin` then git synchronizes with origin and moves your origin/main pointer to its new, more up-to-date position. Note `fetch` does not update/synchronize the loacal "main" with `fetch` command. The `fetch` will not modify your working directory at all. It will simply get the data for you and you need to use the `merge` command to bring working directory up to date.
+
+- The `pull` commanad execute `fetch` and `merge` in one shot.
+
+- Checking out a local branch from a remote-tracking branch automatically creates what is called a “tracking branch” (and the branch it tracks is called an “upstream branch”). Tracking branches are local branches that have a direct relationship to a remote branch. If you’re on a tracking branch and type git pull, Git automatically knows which server to fetch from and which branch to merge in.
+
+- The git pull command is only useful when there is already a local branch to merge the changes into. What about a branch that exists on the remote, but doesn't have a corresponding local branch yet?
+
+- The git checkout --track command can be used to create a new local branch based on the remote branch, and to set the local branch's upstream correctly so that git pull will do the right thing in future.
+
+- When you clone a repository, it generally automatically creates a main branch that tracks origin/main. However, you can set up other tracking branches if you wish — ones that track branches on other remotes, or don’t track the main branch.
+
 - RTB is also called "local copy of the remote repository"
 - RTB are not visible or accessable to user directly
 - `git fetch` sync RTB with the current state of branches on default remote.
