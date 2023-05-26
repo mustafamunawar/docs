@@ -53,7 +53,13 @@ ref: refs/heads/master
 
 - a better way to go in destination folder and:
 
-- `git clone source-project-path new-name-for-cloned-project` note only new name not the path because you are already in destination folde.
+- `git clone source-project-path new-name-for-cloned-project` note only new name not the path because you are already in destination folder. This will clone all remote tracking branches but only the currently active branch.
+
+- in order to clone all local branches as well use --mirror option like:
+
+- `git clone --mirror source-project-path new-name-for-cloned-project`
+
+- You may need to initialize git whether by `git init` or by vscode initialize git repository button. You also need to make an initial commit
 
 -
 

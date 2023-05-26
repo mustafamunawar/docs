@@ -8,13 +8,14 @@
 
 - A simple way to use routing is consists of following 3 steps:
 
-1. router-setup by wrapping top-level component (App.js) by <BrowserRouter> </BrowserRouter>
-2. routes-definition: <Route> components are placed between <Routes> and </Routes> (usually in App.js)
+1. router-setup by wrapping top-level component (App.js) by `<BrowserRouter> </BrowserRouter>`
+2. routes-definition: <Route> components are placed between `<Routes> and </Routes>` (usually in App.js)
 3. Define links using <Link> components (typically in a navbar)
 
 - simple example
 
 ```jsx
+// index.js for simple react-router example
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -36,6 +37,7 @@ root.render(
 - The routes are usually defined in the top level component (i.e. App.js) like the following:
 
 ```jsx
+// App.js for simple react-router example
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -61,6 +63,8 @@ export function App() {
 - an example is following:
 
 ```jsx
+//  App.js for a simple navbar with Link (react-router equivalent of <a>)
+// Routes are also set in this App.js
 import { Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";

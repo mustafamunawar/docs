@@ -14,7 +14,7 @@ module.exports = {
   // plugins property is an array of plugins (that should be installed)
   plugins: [
     new HtmlWebpackPlugin({
-      hash: false, // creates a new hash-suffix in created for compolation (cache busting!)
+      hash: false, // creates a new hash-suffix in created for compilation (cache busting!)
       // title: "Webpack Example App", // this value is accessed in template as <%= htmlWebpackPlugin.options.title %>
       // header: "Webpack Example Title", // same as above
       // metaDesc: "Webpack Example Description", // same as above

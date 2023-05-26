@@ -1,0 +1,48 @@
+# XML: eXtensible Markup Language
+
+- XML stands for eXtensible Markup Language
+- XML is a markup language much like HTML
+- XML was designed to store and transport data
+- XML was designed to be self-descriptive
+- XML is a W3C Recommendation
+
+Extensible:
+XML is extensible. It lets you define your own tags, the order in which they occur, and how they should be processed or displayed. Another way to think about extensibility is to consider that XML allows all of us to extend our notion of what a document is: it can be a file that lives on a file server, or it can be a transient piece of data that flows between two computer systems (as in the case of Web Services).
+
+Markup:
+The most recognizable feature of XML is its tags, or elements (to be more accurate). In fact, the elements you’ll create in XML will be very similar to the elements you’ve already been creating in your HTML documents. However, XML allows you to define your own set of tags.
+
+Language:
+XML is a language that’s very similar to HTML. It’s much more flexible than HTML because it allows you to create your own custom tags. However, it’s important to realize that XML is not just a language. XML is a meta-language: a language that allows us to create or define other languages. For example, with XML we can create other languages, such as RSS, MathML (a mathematical markup language), and even tools like XSLT. More on this later.
+
+- Simple example of XML
+
+```xml
+<note>
+  <to>Tove</to>
+  <from>Jani</from>
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend!</body>
+</note>
+```
+
+### Difference Between XML and HTML
+
+XML and HTML were designed with different goals:
+
+- XML was designed to carry data - with focus on what data is
+- HTML was designed to display data - with focus on how data looks
+- XML tags are not predefined like HTML tags are.
+- Tags in an XML document are defined by the author of the document. That makes XML very flexible for any type of data representation.
+- HTML is case-insensitive and forgiving about missing closing tags or quotation marks around attribute values
+- XML is case-sensitive and requires proper nesting, precise opening and closing tags, single/double quotation marks around attributes values.
+
+XML element, tag and node:
+
+- A `element` consists of an opening tag, its attributes, any content, and a closing tag.
+- A `tag` – either opening or closing – is used to mark the start or end of an element.
+- A `node` is a part of the hierarchical structure that makes up an XML document. “Node” is a generic term that applies to any type of XML document object, including elements, attributes, comments, processing instructions, and plain text.
+
+- Attributes in the opening tag of an XML element can be thought of as adjectives – they provide additional information about the element that may not make any sense as content. If you’ve worked with HTML, you’re familiar with such attributes as the src (file source) on the <img> tag.
+
+-
