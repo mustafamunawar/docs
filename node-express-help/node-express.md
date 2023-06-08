@@ -49,7 +49,7 @@
 
 - The data via http is always in `chunks` of text. Everything needs to be stringify. If it is json then it needs to be stringify from sending side to receiving side. The receiving side then can ‘parse’ the string and get json.
 
-- A basic example of a pure Node server (from MDN) is:
+### A basic example of a pure Node server (from MDN) is:
 
 ```js
 // Load HTTP module
@@ -70,6 +70,24 @@ const server = http.createServer(function (req, res) {
 // Prints a log once the server starts listening
 server.listen(port, hostname, function () {
   console.log(`Server running at http://${hostname}:${port}/`);
+});
+```
+
+### A Basic Express server
+
+```js
+const express = require("express");
+const app = express();
+const port = 3000;
+
+// Send the response body "Hello World"
+app.get("/", function (req, res) {
+  res.send("Hello World!");
+});
+
+// Prints a log once the server starts listening
+app.listen(port, function () {
+  console.log(`Example app listening on port ${port}!`);
 });
 ```
 

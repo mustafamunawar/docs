@@ -15,18 +15,20 @@
 ### Some BEM Examples
 
 .block
-.block**element
-.block**\*element--modifier
 
-Note each of block, element and modifier can have hyphens (single dashes) in their names.
+`.block__element`
 
-Let's take a card-with-image block example with following CSS:
+`.block__element--modifier`
 
-.card-with-image {}
-.card-with-image**image {}
-.card-with-image**description {}
-.card-with-image**button--submit {}
-.card-with-image**button--cancel {}
+- Note each of block, element and modifier can have hyphens (single dashes) in their names.
+
+- Let's take a card-with-image block example with following CSS:
+
+- `.card-with-image {}`
+- `.card-with-image__image {}`
+- `.card-with-image__description {}`
+- `.card-with-image__button--submit {}`
+- `.card-with-image__button--cancel {}`
 
 The "block" is "card-with-image". Note that it has hypens(dashes) to separate words as in usual CSS class names
 The "elements" are one "image", one "description" and two "button" items. These are preceeded by two undederscores
